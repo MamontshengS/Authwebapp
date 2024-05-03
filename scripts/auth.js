@@ -5,9 +5,8 @@ const adminForm = document.querySelector('.admin-actions');
 
 
 //register
-sigupForm.addEventListener('submit', (e) => {  // bu form üzeirnde apılan işşlemlere eventlisterner ekliyoruz...
+sigupForm.addEventListener('submit', (e) => { 
     e.preventDefault();
-    //kullanici bilgileri
     const email = sigupForm['signup-email'].value;
     const password = sigupForm['signup-password'].value;
 
@@ -52,7 +51,7 @@ auth.onAuthStateChanged(user => {
     if (user) { /*onSnapshot trigger all change blogs collection all crud operation will be triggered and page will be updated*/
         console.log("onAuthStateChanged user logged in : ", user);
         //get Blog data
-        db.collection('blogs').onSnapshot(data => {  // eger user  varsa bu  user blogları goster yoksa giriş yapması gerkit içerigi gormek için.
+        db.collection('blogs').onSnapshot(data => {  
             setupBlogs(data.docs);  // if user logged in show blogs
             setupUI(user); // if user logged in show required links in header
         }, err => {
@@ -65,9 +64,7 @@ auth.onAuthStateChanged(user => {
     }
 });
 
-/* db.collection('blogs').onSnapshot(data => bu arkadas tüm db degişikliklerinde trigger edilir. refrest etmeye gerek yok bu sebepeten dolayı Crud işlemlerini hepsi realtine calısıt ekranlalr hemen update olur
-*  db.collection('blogs').get().then() bu ise sadece refresh ediilirken işlenit
-**/
+
 
 
 // add admin cloud functions

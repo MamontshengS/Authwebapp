@@ -2,8 +2,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(); // allow admi specs
 
-exports.addAdminRole = functions.https.onCall((data, context) => { // data buraya gonderdigimiz data fakat context ise o an sessiondaki user hakkındaki bilgileri tutar.Onemli
-    //get user and add admin spec
+exports.addAdminRole = functions.https.onCall((data, context) => { 
     return admin.auth().getUserByEmail(data.email)
         .then(user => {
             return admin.auth().setCustomUserClaims(user.uid, {

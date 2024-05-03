@@ -10,7 +10,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig); // backend ile web arasındaki baglantiyi initilaze editor
 
-//auth ve firestore referansları yaratılır.
-const auth = firebase.auth(); // auth referansi yaratılfı ve bu referans ile auth işlemleri yapacagız
-const  db = firebase.firestore(); // firestore referansi yaratılfı ve bu referans ile auth işlemleri yapacagız
+
+const auth = firebase.auth(); 
+const  db = firebase.firestore(); 
 const  functions = firebase.functions();
